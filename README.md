@@ -5,7 +5,7 @@ Testing various approaches to QA on the NarrativeQA dataset.
 [The NarrativeQA Reading Comprehension Challenge](https://arxiv.org/abs/1712.07040)
 
 Contributors:
-* Sankana Channabasappa Mallik
+* Sanjana Channabasappa Mallik
 * John Maxwell  
 * Malavika Srinivas
 
