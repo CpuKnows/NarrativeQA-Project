@@ -104,5 +104,11 @@ venv.bak/
 .mypy_cache/
 
 # Project Files
-data/tmp/
-data/clean/
+data/*
+!data/compare.sh
+!data/documents.csv
+!data/download_stories.sh
+!data/id_url.csv
+!data/LICENSE
+!data/qaps.csv
+!data/third_party/*

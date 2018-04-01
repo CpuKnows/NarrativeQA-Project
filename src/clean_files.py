@@ -1,11 +1,12 @@
 # Author: John Maxwell
 # Date: 2018-03-17
-# TLDR: CLeans html and extra text before and after content for NarrativeQA 
+# TLDR: Cleans html and extra text before and after content for NarrativeQA 
 #       dataset
 # =============================================================================
 
 import codecs
 from html.parser import HTMLParser
+from tqdm import tqdm
 import pandas as pd
 
 
@@ -59,10 +60,10 @@ def clean_files(doc_ids, story_url, doc_dir, output_dir):
     :return: none
     """
     
-    for doc_id, url in zip(doc_ids, story_url):
+    for doc_id, url in tqdm(zip(doc_ids, story_url), total=len(doc_ids)):
         # book
         if 'gutenberg.org' in url:
-            with codecs.open(doc_dir + doc_id + '.content', "r",encoding='utf-8', errors='ignore') as f:
+            with codecs.open(doc_dir + doc_id + '.content', 'r',encoding='utf-8', errors='ignore') as f:
                 doc_str = f.read()
                 
             start_sentences = [
@@ -112,12 +113,12 @@ def clean_files(doc_ids, story_url, doc_dir, output_dir):
             else:
                 doc_str = doc_str[start_pos:end_pos-1]
                 
-                with codecs.open(output_dir + doc_id + '-clean.content', "w",encoding='utf-8', errors='ignore') as f:
+                with codecs.open(output_dir + doc_id + '-clean.content', 'w',encoding='utf-8', errors='ignore') as f:
                     f.write(doc_str)
         
         # movie script
         else:
-            with codecs.open(doc_dir + doc_id + '.content', "r",encoding='utf-8', errors='ignore') as f:
+            with codecs.open(doc_dir + doc_id + '.content', 'r',encoding='utf-8', errors='ignore') as f:
                 if ('awesomefilm.com' in url) or ('dailyscript.com' in url):
                     parser = ScriptHTMLParser(imsdb_format=False)
                 elif 'imsdb.com' in url:
@@ -125,7 +126,7 @@ def clean_files(doc_ids, story_url, doc_dir, output_dir):
                 parser.feed(f.read())
                 doc_str = parser.get_data()
 
-            with codecs.open(output_dir + doc_id + '-clean.content', "w",encoding='utf-8', errors='ignore') as f:
+            with codecs.open(output_dir + doc_id + '-clean.content', 'w',encoding='utf-8', errors='ignore') as f:
                 f.write(doc_str)
 
 
