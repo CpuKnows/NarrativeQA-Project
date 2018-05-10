@@ -9,6 +9,10 @@ Contributors:
 * John Maxwell  
 * Malavika Srinivas
 
+
+Using code from the [Tensorflow seq2seq tutorial][https://www.tensorflow.org/tutorials/seq2seq]  
+[Seq2seq tutorial GitHub][https://github.com/tensorflow/nmt/]
+
 ### Bibtex
 
 ```
@@ -22,5 +26,14 @@ url = {https://TBD},
 volume = {TBD},
 year = {2018},
 pages = {TBD},
+}
+```
+
+```
+@article{luong17,
+  author  = {Minh{-}Thang Luong and Eugene Brevdo and Rui Zhao},
+  title   = {Neural Machine Translation (seq2seq) Tutorial},
+  journal = {https://github.com/tensorflow/nmt},
+  year    = {2017},
 }
 ```
